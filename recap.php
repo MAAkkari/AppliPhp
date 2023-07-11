@@ -4,11 +4,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;1,100;1,400&display=swap" rel="stylesheet">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Récapitulatif des produits</title>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
+<a href="index.php">retourner au formulaire</a>
     <?php 
     //verifie si la clef products n'existe pas dans $_session ou si elle existe mais qu'elle est vite
     if(!isset($_SESSION["products"])|| empty($_SESSION["products"])){
