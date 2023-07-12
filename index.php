@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,12 +9,20 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajouet produit</title>
+    <title>Ajout produit</title>
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
     <div class="menu">
         <a href="recap.php">Voir le tableau recapitulatif</a>
+        <?php 
+    session_start();
+    if(isset($_SESSION["errors"]) && !empty($_SESSION["errors"])){
+    echo "<h2 class='nb_produit'>".count($_SESSION["products"])." Produits en session</h2>";}
+    if(isset($_SESSION["errors"]) && !empty($_SESSION["errors"])){
+        echo "<p class='errors'>".$_SESSION["errors"][count($_SESSION["errors"])-1]."</p>";
+    }
+?> 
     </div>
 <div class="panneau">
     <h1>Ajouter un produit</h1>
@@ -40,5 +50,6 @@
         </p>
     </form>
 </div>
+    
 </body>
 </html>
