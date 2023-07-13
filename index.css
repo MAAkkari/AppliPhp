@@ -94,7 +94,7 @@ a{
     margin-right: auto;
     animation-name: fadeOut;
     animation-duration: 1s;
-    animation-delay: 3s; /* Set the delay to 3 seconds */
+    animation-delay: 3s; 
     animation-fill-mode: forwards;
   }
   

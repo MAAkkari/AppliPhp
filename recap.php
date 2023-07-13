@@ -17,7 +17,6 @@
 <a href="index.php">retourner au formulaire</a>
     <?php 
      echo "<h2>".count($_SESSION["products"])." Produits en session</h2>";
-    //verifie si la clef products n'existe pas dans $_session ou si elle existe mais qu'elle est vite
     if(!isset($_SESSION["products"])|| empty($_SESSION["products"])){
         echo "<p>Aucun Produit en session...</p>";
     }
