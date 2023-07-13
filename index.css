@@ -146,8 +146,6 @@ a{
   background-color: rgba(63, 185, 185, 0.337);
   color:black;
   border-radius: 5px;
-  
-  
 
 }
 .f3{
@@ -164,4 +162,42 @@ a{
   justify-content: center;
   
   
+}
+@media only screen and (max-width: 700px) {
+h1{
+  font-size: 200%;
+  margin-top: 0px;
+  margin-bottom: 5px;
+  
+}
+.panneau{
+  height: 50%;
+  
+}
+.f1{
+  height: 10%;
+  width: 90%;
+  font-size: 180%;
+}
+td,th{
+  font-size: 70%;
+  
+}
+.bouttonDeleteALL{
+  width:40%
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

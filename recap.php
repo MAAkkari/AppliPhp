@@ -1,19 +1,7 @@
 <?php 
+    ob_start();
     session_start();
 ?> 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;1,100;1,400&display=swap" rel="stylesheet">
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Récapitulatif des produits</title>
-    <link rel="stylesheet" href="index.css">
-</head>
-<body>
 <a href="index.php">retourner au formulaire</a>
     <?php 
      if(isset($_SESSION["products"]) && !empty($_SESSION["products"])){
@@ -48,12 +36,12 @@
                         "<td>".$index."</td>",
                         "<td>".$product["name"]."</td>",
                         "<td>".number_format($product["price"],2,",","&nbsp;")."&nbsp;€</td>",
-                        "<td><div class='flex'><form class='f3' action='traitement.php' method='post' ><input class='adjust.btn' type='hidden' name='moin' value='$index'>
+                        "<td><div class='flex'><form class='f3' action='traitement.php?action=lowerQtt' method='post' ><input class='adjust.btn' type='hidden' name='moin' value='$index'>
                         <div class ='container'><button class='btnf3'type='submit'>-</button></div></form>".$product["qtt"].
-                        "<form class='f3' action='traitement.php' method='post'><input class='adjust.btn' type='hidden' name='plus' value='$index'>
+                        "<form class='f3' action='traitement.php?action=increaseQtt' method='post'><input class='adjust.btn' type='hidden' name='plus' value='$index'>
                         <div class ='container'><button class='btnf3'type='submit'>+</button></div></form></div></td>",
                         "<td>".number_format($product["total"],2,",","&nbsp;")."&nbsp;€</td>",
-                        "<td> <form class='form2' method='POST' action='traitement.php'><input class='inputf2' type='hidden' name='delete' value='$index'>
+                        "<td> <form class='form2' method='POST' action='traitement.php?action=deleteProduct'><input class='inputf2' type='hidden' name='delete' value='$index'>
                         <button class='btnf2'type='submit'>Delete</button></form></td>",
                     "</tr>";
                 $totalGeneral+= $product["total"];
@@ -64,9 +52,10 @@
                     "<tr>",
             "</tbody>",
         "<table>";
-        echo "<form action='traitement.php' method='post'><input class='bouttonDeleteALL' type='submit' name='deleteAll' value='Supprimer tout les produits'></form>";
+        echo "<form action='traitement.php?action=deleteAllProduct' method='post'><input class='bouttonDeleteALL' type='submit' name='deleteAll' value='Supprimer tout les produits'></form>";
     }   
 
+    $title="tableau recapitulatif";
+    $contenu = ob_get_clean();
+    require_once('template.php');
     ?> 
-</body>
-</html>

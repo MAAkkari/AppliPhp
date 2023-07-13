@@ -1,18 +1,6 @@
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;1,100;1,400&display=swap" rel="stylesheet">
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajout produit</title>
-    <link rel="stylesheet" href="index.css">
-</head>
-<body>
+<?php 
+ob_start();
+?>
     <div class="menu">
         <a href="recap.php">Voir le tableau recapitulatif</a>
         <?php 
@@ -31,7 +19,7 @@
     </div>
 <div class="panneau">
     <h1>Ajouter un produit</h1>
-    <form action="traitement.php" method="post">
+    <form class="f1" action="traitement.php?action=addProduct" method="post">
         <p>
             <label>
                 Nom produit 🎁
@@ -56,5 +44,9 @@
     </form>
 </div>
     
-</body>
-</html>
+<?php
+
+$title="ajouter un produit";
+$contenu = ob_get_clean();
+
+require_once('template.php');
