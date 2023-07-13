@@ -19,7 +19,7 @@ ob_start();
     </div>
 <div class="panneau">
     <h1>Ajouter un produit</h1>
-    <form class="f1" action="traitement.php?action=addProduct" method="post">
+    <form class="f1" action="traitement.php?action=addProduct" method="post" enctype="multipart/form-data">
         <p>
             <label>
                 Nom produit 🎁
@@ -38,15 +38,16 @@ ob_start();
                 <input type="number" min="0" name="qtt" value="1">
             </label>
         </p>
+            <label>
+                Ajouter une image de ce produit
+                <input type="file" name="image">
+            </label>
         <p>
             <input class="boutton" type="submit" name="submit" value="Ajouter le produit">
         </p>
     </form>
 </div>
-    
 <?php
-
 $title="ajouter un produit";
 $contenu = ob_get_clean();
-
 require_once('template.php');

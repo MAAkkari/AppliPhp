@@ -41,6 +41,7 @@
                         "<form class='f3' action='traitement.php?action=increaseQtt' method='post'><input class='adjust.btn' type='hidden' name='plus' value='$index'>
                         <div class ='container'><button class='btnf3'type='submit'>+</button></div></form></div></td>",
                         "<td>".number_format($product["total"],2,",","&nbsp;")."&nbsp;€</td>",
+                        "<td style='width: 50px' class='img_container'><img class='img' src='".$_SESSION['products'][$index]['image']."'></td>",
                         "<td> <form class='form2' method='POST' action='traitement.php?action=deleteProduct'><input class='inputf2' type='hidden' name='delete' value='$index'>
                         <button class='btnf2'type='submit'>Delete</button></form></td>",
                     "</tr>";
