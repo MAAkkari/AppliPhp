@@ -17,10 +17,15 @@
         <a href="recap.php">Voir le tableau recapitulatif</a>
         <?php 
     session_start();
+    if(isset($_SESSION["products"]) && !empty($_SESSION["products"])){
+        $total=0;
+        foreach($_SESSION["products"] as $index=>$product){
+            $total+=$product["qtt"];
+        }
+        echo "<h2>".$total." Produits en session</h2>";}
     if(isset($_SESSION["errors"]) && !empty($_SESSION["errors"])){
-    echo "<h2 class='nb_produit'>".count($_SESSION["products"])." Produits en session</h2>";}
-    if(isset($_SESSION["errors"]) && !empty($_SESSION["errors"])){
-        echo "<p class='errors'>".$_SESSION["errors"][count($_SESSION["errors"])-1]."</p>";
+        echo "<p class='errors'>".$_SESSION["errors"][0]."</p>";
+        $_SESSION["errors"]=[];
     }
 ?> 
     </div>

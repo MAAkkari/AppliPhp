@@ -16,7 +16,17 @@
 <body>
 <a href="index.php">retourner au formulaire</a>
     <?php 
-     echo "<h2>".count($_SESSION["products"])." Produits en session</h2>";
+     if(isset($_SESSION["products"]) && !empty($_SESSION["products"])){
+        $total=0;
+        foreach($_SESSION["products"] as $index=>$product){
+            $total+=$product["qtt"];
+        }
+        echo "<h2>".$total." Produits en session</h2>";
+     }
+     if(isset($_SESSION["errors"]) && !empty($_SESSION["errors"])){
+        echo "<p class='errors'>".$_SESSION["errors"][0]."</p>";
+        $_SESSION["errors"]=[];
+    }
     if(!isset($_SESSION["products"])|| empty($_SESSION["products"])){
         echo "<p>Aucun Produit en session...</p>";
     }
