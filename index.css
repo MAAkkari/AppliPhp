@@ -18,6 +18,7 @@ input{
     background-color:skyblue;
 }
 
+
 form {
     width:600px;
     margin :auto;
@@ -64,6 +65,8 @@ td,th{
     font-weight: bold;
     color:rgb(246, 222, 6);
     text-shadow: 1px 0px 2px black;
+    
+    
 }
 a{
     
@@ -89,5 +92,76 @@ a{
     padding:6px 6px ;
     margin-left: auto;
     margin-right: auto;
+    animation-name: fadeOut;
+    animation-duration: 1s;
+    animation-delay: 3s; /* Set the delay to 3 seconds */
+    animation-fill-mode: forwards;
+  }
+  
+  @keyframes fadeOut {
+    to {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+  .form2{
+    position: relative;
+    width: 1%;
+  }
+  .btnf2{
+    position:absolute;
+    left:1%;
+    height: 100%;
+    top:1%;
+    width:100%;
+    background-color: rgba(63, 185, 185, 0.337);
+    color:black;
+    border-radius: 5px;
+    border:3px solid rgb(255, 221, 0);
+    font-weight: bold;
+    cursor: pointer;
     
+    
+  }
+  .inputf2{
+    padding: 5px;
+    font-size: 12px;
+  }
+ .bouttonDeleteALL{
+  width:20%;
+  margin-left:auto;
+  margin-right:auto;
+  display:block;
+  font-weight: bold;
+  font-size: 100%;
+  cursor: pointer;
+  
+ }   
+.flex{
+  display:flex;
+  align-items: center;
+}
+.btnf3{
+  cursor: pointer;
+  background-color: rgba(63, 185, 185, 0.337);
+  color:black;
+  border-radius: 5px;
+  
+  
+
+}
+.f3{
+  width:1px;
+  height: 1px;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10px;
+}
+.container{
+  display: flex;
+  justify-content: center;
+  
+  
 }

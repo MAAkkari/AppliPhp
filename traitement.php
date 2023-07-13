@@ -11,14 +11,42 @@ if (isset($_POST['submit'])){
             "name" => $name,
             "price" => $price,
             "qtt" => $qtt,
-            "total" => $price*$qtt
+            "total" => $price*$qtt,
+            
         ];
         $_SESSION["errors"][] = "ajout avec succes";
         $_SESSION["products"][]=$product;
+        header("Location: index.php");
     }
     else{
         $_SESSION["errors"][] = "Veuillez remplir tous les champs";
+        header("Location: index.php");
     }
 }
-header("Location: index.php");
+if(isset($_POST['delete'])){
+    $index=$_POST['delete'];
+    unset($_SESSION["products"][$index]);
+    $_SESSION["products"] = array_values($_SESSION["products"]);
+    header("Location: recap.php");
+}
+if(isset($_POST["deleteAll"])){
+    $_SESSION["products"]=[];
+    $_SESSION["products"] = array_values($_SESSION["products"]);
+    header("Location: recap.php");
+}
+
+if(isset($_POST["plus"])){
+    $index=$_POST["plus"];
+    $_SESSION["products"][$index]["qtt"]+=1;
+    $_SESSION["products"] = array_values($_SESSION["products"]);
+    header("Location: recap.php");
+}
+
+if(isset($_POST["moin"])){
+    $index=$_POST["moin"];
+    $_SESSION["products"][$index]["qtt"]-=1;
+    $_SESSION["products"] = array_values($_SESSION["products"]);
+    header("Location: recap.php");
+}
+
 ?>

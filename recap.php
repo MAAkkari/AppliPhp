@@ -39,8 +39,13 @@
                         "<td>".$index."</td>",
                         "<td>".$product["name"]."</td>",
                         "<td>".number_format($product["price"],2,",","&nbsp;")."&nbsp;€</td>",
-                        "<td>".$product["qtt"]."</td>",
+                        "<td><div class='flex'><form class='f3' action='traitement.php' method='post' ><input class='adjust.btn' type='hidden' name='moin' value='$index'>
+                        <div class ='container'><button class='btnf3'type='submit'>-</button></div></form>".$product["qtt"].
+                        "<form class='f3' action='traitement.php' method='post'><input class='adjust.btn' type='hidden' name='plus' value='$index'>
+                        <div class ='container'><button class='btnf3'type='submit'>+</button></div></form></div></td>",
                         "<td>".number_format($product["total"],2,",","&nbsp;")."&nbsp;€</td>",
+                        "<td> <form class='form2' method='POST' action='traitement.php'><input class='inputf2' type='hidden' name='delete' value='$index'>
+                        <button class='btnf2'type='submit'>Delete</button></form></td>",
                     "</tr>";
                 $totalGeneral+= $product["total"];
             }      
@@ -50,8 +55,9 @@
                     "<tr>",
             "</tbody>",
         "<table>";
+        echo "<form action='traitement.php' method='post'><input class='bouttonDeleteALL' type='submit' name='deleteAll' value='Supprimer tout les produits'></form>";
     }   
-        
+
     ?> 
 </body>
 </html>
