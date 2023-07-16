@@ -69,7 +69,7 @@
 
                     //case image du produit
                     if(isset($_SESSION['products'][$index]['image'])){
-                        echo"<td style='width: 50px' class='img_container'>
+                        echo"<td style='width: 95px' class='img_container'>
                                 <img class='img' src='upload".$_SESSION['products'][$index]['image']."'>
                             </td>";
                     }
